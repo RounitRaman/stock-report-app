@@ -1,0 +1,38 @@
+<div class="overview-container">
+  <div class="overview-grid">
+    <div class="info-card">
+      <div class="card-label">Stock Symbol</div>
+      <div class="card-value symbol-value">{{ stockData.symbol }}</div>
+    </div>
+
+    <div class="info-card">
+      <div class="card-label">Current Price</div>
+      <div class="card-value price-value">${{ stockData.price | number:'1.2-2' }}</div>
+      @if (stockData.change_percent) {
+        <div class="change-indicator" [class.positive]="stockData.change_percent >= 0" [class.negative]="stockData.change_percent < 0">
+          {{ stockData.change_percent >= 0 ? '+' : '' }}{{ stockData.change_percent | number:'1.2-2' }}%
+        </div>
+      }
+    </div>
+
+    <div class="info-card">
+      <div class="card-label">Company Name</div>
+      <div class="card-value">{{ stockData.company.name }}</div>
+    </div>
+
+    <div class="info-card">
+      <div class="card-label">Exchange</div>
+      <div class="card-value">{{ stockData.company.exchange }}</div>
+    </div>
+
+    <div class="info-card">
+      <div class="card-label">Industry</div>
+      <div class="card-value">{{ stockData.company.industry }}</div>
+    </div>
+
+    <div class="info-card">
+      <div class="card-label">Market Cap</div>
+      <div class="card-value">{{ stockData.company.market_cap | number:'1.0-0' }}</div>
+    </div>
+  </div>
+</div>

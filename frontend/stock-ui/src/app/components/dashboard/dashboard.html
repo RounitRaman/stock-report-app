@@ -1,0 +1,45 @@
+<div class="container">
+
+  <h2>Stock Report Dashboard</h2>
+
+  <div class="input-section">
+    <input
+      type="text"
+      placeholder="Enter stock symbol (e.g. AAPL)"
+      [(ngModel)]="symbol"
+    />
+    <button (click)="fetchStock()">Fetch</button>
+  </div>
+
+  @if (loading) {
+    <div>Loading...</div>
+  }
+
+  @if (error) {
+    <div class="error">{{ error }}</div>
+  }
+
+  @if (stockData) {
+
+    <div class="card">
+
+      <h3>{{ stockData.symbol }}</h3>
+
+      <p><strong>Price:</strong> {{ stockData.price }}</p>
+      <p><strong>Company:</strong> {{ stockData.company.name }}</p>
+      <p><strong>Exchange:</strong> {{ stockData.company.exchange }}</p>
+      <p><strong>Industry:</strong> {{ stockData.company.industry }}</p>
+      <p><strong>Market Cap:</strong> {{ stockData.company.market_cap }}</p>
+
+    </div>
+
+    <button 
+      (click)="downloadReport()"
+      style="margin-top: 15px;"
+    >
+      Download PPT Report
+    </button>
+
+  }
+
+</div>

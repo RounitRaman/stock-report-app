@@ -29,4 +29,10 @@ export class StockService {
   getStockSummary(symbol: string): Observable<StockSummary> {
     return this.http.get<StockSummary>(`${this.baseUrl}/${symbol}/summary`);
   }
+  downloadReport(symbol: string) {
+  return this.http.get(
+    `${this.baseUrl}/${symbol}/report`,
+    { responseType: 'blob' }
+  );
+}
 }

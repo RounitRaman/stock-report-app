@@ -1,0 +1,19 @@
+<div class="home-container">
+  <div class="home-card">
+    <h1 class="home-title">Stock Report Dashboard</h1>
+    <p class="home-subtitle">Enter a stock symbol to view detailed information</p>
+    
+    <div class="input-section">
+      <input
+        type="text"
+        placeholder="Enter stock symbol (e.g. AAPL)"
+        [(ngModel)]="symbol"
+        (keyup.enter)="fetchStock()"
+        class="symbol-input"
+      />
+      <button (click)="fetchStock()" class="fetch-button">
+        Fetch
+      </button>
+    </div>
+  </div>
+</div>

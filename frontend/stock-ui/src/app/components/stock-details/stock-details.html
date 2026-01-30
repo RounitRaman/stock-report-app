@@ -1,0 +1,72 @@
+<div class="stock-details-container">
+  <div class="header">
+    <button class="back-button" (click)="goHome()">
+      ← Back to Home
+    </button>
+    <h1 class="page-title">Stock Details</h1>
+  </div>
+
+  @if (loading && !stockData) {
+    <div class="loading-container">
+      <div class="spinner"></div>
+      <p>Loading stock data...</p>
+    </div>
+  }
+
+  @if (error && !stockData) {
+    <div class="error-container">
+      <p class="error-message">{{ error }}</p>
+      <button class="retry-button" (click)="loadStockData()">Retry</button>
+    </div>
+  }
+
+  @if (stockData) {
+    <div class="content-wrapper">
+      <nav class="tab-navigation">
+        <button
+          class="tab-button"
+          [class.active]="activeTab === 'overview'"
+          (click)="setActiveTab('overview')"
+        >
+          Overview
+        </button>
+        <button
+          class="tab-button"
+          [class.active]="activeTab === 'historical'"
+          (click)="setActiveTab('historical')"
+        >
+          Historical Data
+        </button>
+        <button
+          class="tab-button"
+          [class.active]="activeTab === 'financials'"
+          (click)="setActiveTab('financials')"
+        >
+          Financials
+        </button>
+        <button
+          class="tab-button"
+          [class.active]="activeTab === 'reports'"
+          (click)="setActiveTab('reports')"
+        >
+          Reports
+        </button>
+      </nav>
+
+      <div class="tab-content">
+        @if (activeTab === 'overview') {
+          <app-overview-tab [stockData]="stockData" />
+        }
+        @if (activeTab === 'historical') {
+          <app-historical-data-tab />
+        }
+        @if (activeTab === 'financials') {
+          <app-financials-tab />
+        }
+        @if (activeTab === 'reports') {
+          <app-reports-tab [symbol]="symbol" />
+        }
+      </div>
+    </div>
+  }
+</div>

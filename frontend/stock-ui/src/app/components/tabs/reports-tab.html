@@ -1,0 +1,39 @@
+<div class="reports-container">
+  <div class="reports-card">
+    <div class="reports-header">
+      <h2 class="reports-title">Download Report</h2>
+      <p class="reports-description">Generate and download a PowerPoint presentation with stock analysis and data.</p>
+    </div>
+
+    @if (error) {
+      <div class="error-message">{{ error }}</div>
+    }
+
+    <button
+      class="download-button"
+      (click)="downloadReport()"
+      [disabled]="loading || !symbol"
+    >
+      @if (loading) {
+        <span class="button-content">
+          <span class="spinner-small"></span>
+          Generating Report...
+        </span>
+      } @else {
+        <span class="button-content">
+          <span class="download-icon">📥</span>
+          Download PPT Report
+        </span>
+      }
+    </button>
+
+    <div class="reports-info">
+      <p class="info-text">The report will include:</p>
+      <ul class="info-list">
+        <li>Stock overview and key metrics</li>
+        <li>Company profile information</li>
+        <li>Market data and analysis</li>
+      </ul>
+    </div>
+  </div>
+</div>

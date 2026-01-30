@@ -1,0 +1,141 @@
+.stock-details-container {
+  min-height: 100vh;
+  background: #f5f7fa;
+  padding: 24px;
+}
+
+.header {
+  max-width: 1200px;
+  margin: 0 auto 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.back-button {
+  padding: 8px 16px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  color: #4a5568;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.back-button:hover {
+  background: #f7fafc;
+  border-color: #cbd5e0;
+}
+
+.page-title {
+  font-size: 28px;
+  font-weight: 600;
+  color: #1a202c;
+  margin: 0;
+}
+
+.loading-container,
+.error-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 48px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.spinner {
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #3182ce;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 16px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.error-message {
+  color: #e53e3e;
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+.retry-button {
+  padding: 10px 24px;
+  background: #3182ce;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.retry-button:hover {
+  background: #2c5aa0;
+}
+
+.content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tab-navigation {
+  display: flex;
+  gap: 8px;
+  background: white;
+  padding: 8px 8px 0 8px;
+  border-radius: 12px 12px 0 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.tab-button {
+  padding: 12px 24px;
+  background: transparent;
+  border: none;
+  border-radius: 8px 8px 0 0;
+  color: #718096;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+  margin-bottom: -2px;
+}
+
+.tab-button:hover {
+  background: #f7fafc;
+  color: #4a5568;
+}
+
+.tab-button.active {
+  color: #3182ce;
+  background: #ebf8ff;
+}
+
+.tab-button.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #3182ce;
+  z-index: 1;
+}
+
+.tab-content {
+  background: white;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 32px;
+  min-height: 400px;
+}

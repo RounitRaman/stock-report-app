@@ -1,0 +1,76 @@
+.home-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 20px;
+}
+
+.home-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  padding: 48px 40px;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+}
+
+.home-title {
+  font-size: 32px;
+  font-weight: 600;
+  color: #1a202c;
+  margin: 0 0 12px 0;
+  letter-spacing: -0.5px;
+}
+
+.home-subtitle {
+  font-size: 16px;
+  color: #718096;
+  margin: 0 0 32px 0;
+}
+
+.input-section {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.symbol-input {
+  flex: 1;
+  min-width: 200px;
+  padding: 12px 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.symbol-input:focus {
+  outline: none;
+  border-color: #3182ce;
+  box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
+}
+
+.fetch-button {
+  padding: 12px 32px;
+  background: #3182ce;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.fetch-button:hover {
+  background: #2c5aa0;
+  transform: translateY(-1px);
+}
+
+.fetch-button:active {
+  transform: translateY(0);
+}
