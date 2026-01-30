@@ -27,13 +27,26 @@ def generate_stock_report(stock: StockSummary) -> Path:
 
     for slide in presentation.slides:
         for shape in slide.shapes:
-            if not shape.has_text_frame:
-                continue
 
-            for paragraph in shape.text_frame.paragraphs:
-                for key, value in replacements.items():
-                    if key in paragraph.text:
-                        paragraph.text = paragraph.text.replace(key, value)
+            # Handle normal text frames
+            if shape.has_text_frame:
+                for paragraph in shape.text_frame.paragraphs:
+                    for run in paragraph.runs:
+                        for key, value in replacements.items():
+                            if key in run.text:
+                                run.text = run.text.replace(key, value)
+
+            # Handle tables while preserving formatting
+            if shape.has_table:
+                table = shape.table
+                for row in table.rows:
+                    for cell in row.cells:
+                        for paragraph in cell.text_frame.paragraphs:
+                            for run in paragraph.runs:
+                                for key, value in replacements.items():
+                                    if key in run.text:
+                                        run.text = run.text.replace(key, value)
+
 
     output_file = OUTPUT_DIR / f"{stock.symbol}_report.pptx"
 
