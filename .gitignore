@@ -1,0 +1,9 @@
+backend/venv/
+backend/.env
+backend/__pycache__/
+*.pyc
+
+frontend/stock-ui/node_modules/
+frontend/stock-ui/dist/
+
+.DS_Store
