@@ -22,7 +22,7 @@ export interface StockSummary {
 })
 export class StockService {
 
-  private readonly baseUrl = 'http://127.0.0.1:8000/api/stocks';
+  private readonly baseUrl = 'https://stock-report-backend-32js.onrender.com/api/stocks';
 
   constructor(private http: HttpClient) {}
 
