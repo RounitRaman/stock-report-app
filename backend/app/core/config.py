@@ -1,9 +1,13 @@
-from dotenv import load_dotenv
 import os
+from dotenv import load_dotenv
+from pathlib import Path
 
-load_dotenv()
+# Load .env from backend directory
+BASE_DIR = Path(__file__).resolve().parents[2]
+load_dotenv(BASE_DIR / ".env")
 
 class Settings:
-    FINNHUB_API_KEY = os.getenv("FINNHUB_API_KEY")
+    def __init__(self):
+        self.FINNHUB_API_KEY = os.getenv("FINNHUB_API_KEY")
 
 settings = Settings()

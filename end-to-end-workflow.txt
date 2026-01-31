@@ -1,0 +1,21 @@
+User enters stock symbol
+        ↓
+Angular calls Backend API
+        ↓
+FastAPI route triggers service layer
+        ↓
+Service layer calls Data Provider
+        ↓
+Provider fetches from Finnhub API (demo)
+        ↓
+Data normalized into StockSummary
+        ↓
+Returned to Angular for UI display
+        ↓
+User clicks "Download PPT"
+        ↓
+Backend calls PPT generator
+        ↓
+PPT created from template + live data
+        ↓
+PPT returned to user
