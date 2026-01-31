@@ -5,7 +5,8 @@ app = FastAPI(title="Stock Report API")
 # CORS configuration (frontend allowed)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:4200"],
+    allow_origins=["http://localhost:4200",
+        "https://stock-report-ezws1f4g4-rounit-ramans-projects.vercel.app"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
